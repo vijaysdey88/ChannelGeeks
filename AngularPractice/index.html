@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home Page</title>
-	<link rel="stylesheet" type="text/css" href="">
+	<title>Home Page</title> 
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>	
 	<script type="text/javascript" src="js/demo_app.js"></script>
 </head>
 <body ng-app="demoApp">
-	<input type="text" ng-model="message">
-	<p>{{message}}</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 jumbotron"><h4>Basics of directives 1....</h4>
+				<div ng-controller="HelloController" class="col-md-6">
+					<label for="message">Message : </label> <input type="text" id="message" ng-model="message">
+					<span message-preview="red"></span>	
+				
+					<p enter="logHello()" style="background-color:#00CED1;width:300px">View the console...</p>		
+				</div>			
+			</div>
+			<div class="col-md-6 jumbotron"><h4>Basics of directives 2</h4>
+					coming up...		
+			</div>
+		</div>
+	</div>
 </body>
 </html>
