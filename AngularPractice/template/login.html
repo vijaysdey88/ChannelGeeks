@@ -5,10 +5,17 @@
         <label for="email" ng-model="user.email" class="sr-only">Email address</label>
         <input type="email" name="email" ng-model="user.email" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="Email address" required autofocus>
    </div>
-        <div class="form-group" ng-class="{'has-error':form.password.$dirty && form.password.$invalid, 'has-success':form.password.$dirty && form.password.$valid}" >
+    <div class="form-group" ng-class="{'has-error':form.password.$dirty && form.password.$invalid, 'has-success':form.password.$dirty && form.password.$valid}" >
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" ng-model="user.password" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="Password" required>
    </div>
+
+ <!-- <div class="form-group" ng-class="{'has-error':form.age.$dirty && form.age.$invalid, 'has-success':form.age.$dirty && form.age.$valid}" >
+        <label for="age" class="sr-only">age</label>
+        <input type="age" name="age" ng-model="user.age" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="age" required>
+   </div> -->
+   <!-- <required-field name="age" model="user.age" type="text" description="Enter age"></required-field>
+    age - {{user.age}} -->
 
     <div class="checkbox">
       <label>

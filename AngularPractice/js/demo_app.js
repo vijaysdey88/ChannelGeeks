@@ -3,7 +3,9 @@ var app = angular.module('demoApp', []);
 
 app.controller("LoginController", function($scope){
 	var user = {};
+	user.age = "124";
 	$scope.user = user;
+
 	$scope.login = function() {
 		console.log('Login user : ' + user.email + "" + user.password);
 	};
@@ -13,6 +15,19 @@ app.directive("login", function(){
 	return {
 		restrict : "E",
 		templateUrl : "../template/login.html"
+	};
+});
+
+app.directive("requiredField", function(){
+	return {
+		restrict : "E",
+		scope : {
+			name : "@",
+			type : "@",
+			model: "=",
+			placeholder : "@"
+		},
+		templateUrl : "../template/requiredField.html"
 	};
 });
 
