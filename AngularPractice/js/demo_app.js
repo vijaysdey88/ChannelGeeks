@@ -19,6 +19,7 @@ app.controller("HelloController", function($scope){
 	};
 });
 
+// Basic Behavious
 app.directive('messagePreview', function(){
 	return {
 		restrict : "A",
@@ -39,6 +40,17 @@ app.directive('enter', function() {
 				scope.$apply(attributes.enter);
 			});
 		}
+	};
+});
+
+// Scope
+app.directive("cricketer", function() {
+	return {
+		scope :{
+			name : "@"
+		},
+		restrict: "E",
+		template: "<p>Circketer : {{name}}</p>"
 	};
 });
 
