@@ -1,16 +1,19 @@
-<form class="form-signin">
+<form name="form" class="form-signin" ng-controller="LoginController" novalidate>
     <h2 class="form-signin-heading">Please sign in</h2>
    
-    <label for="email" class="sr-only">Email address</label>
-    <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
-   
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" class="form-control" placeholder="Password" required>
-   
+   <div class="form-group" ng-class="{'has-error':form.email.$dirty && form.email.$invalid, 'has-success':form.email.$dirty && form.email.$valid}" >
+        <label for="email" ng-model="user.email" class="sr-only">Email address</label>
+        <input type="email" name="email" ng-model="user.email" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="Email address" required autofocus>
+   </div>
+        <div class="form-group" ng-class="{'has-error':form.password.$dirty && form.password.$invalid, 'has-success':form.password.$dirty && form.password.$valid}" >
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" ng-model="user.password" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="Password" required>
+   </div>
+
     <div class="checkbox">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login()">Sign in</button>
 </form>

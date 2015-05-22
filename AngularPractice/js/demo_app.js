@@ -2,7 +2,11 @@ var app = angular.module('demoApp', []);
 
 
 app.controller("LoginController", function($scope){
-
+	var user = {};
+	$scope.user = user;
+	$scope.login = function() {
+		console.log('Login user : ' + user.email + "" + user.password);
+	};
 });
 
 app.directive("login", function(){
@@ -63,5 +67,7 @@ app.directive("cricketer", function() {
 		templateUrl: "../template/cricketer.html"
 	};
 });
+
+
 
 
