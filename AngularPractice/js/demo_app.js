@@ -1,12 +1,24 @@
 var app = angular.module('demoApp', []);
 
+
+app.controller("LoginController", function($scope){
+
+});
+
+app.directive("login", function(){
+	return {
+		restrict : "E",
+		templateUrl : "../template/login.html"
+	};
+});
+
+//Practice Directives
 app.controller("HelloController", function($scope){
 	$scope.logHello = function() {
 		console.log("Controller says Hello!!")
 	};
 });
 
-//Practice Directives
 app.directive('messagePreview', function(){
 	return {
 		restrict : "A",
