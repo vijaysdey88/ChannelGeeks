@@ -23,7 +23,7 @@ app.controller("HelloController", function($scope){
 app.directive('messagePreview', function(){
 	return {
 		restrict : "A",
-		template :  "<span>Preview {{message}}</span>",
+		template :  "<p>Preview {{message}}</p>",
 		link: function(scope, element, attributes){
 			console.log('attributes', attributes.messagePreview);
 			element.css("color", attributes.messagePreview);
@@ -43,14 +43,24 @@ app.directive('enter', function() {
 	};
 });
 
-// Scope
+// Isolated Scope types
+app.controller("CricketController", function($scope) {
+	$scope.team = "";
+	$scope.sayHello = function(cricketerName) {
+		alert("Hello!!! - " + cricketerName);
+	};
+});
+
+//Attribute binding - @
 app.directive("cricketer", function() {
 	return {
 		scope :{
-			name : "@"
+			name : "@",
+			team : "=",
+			register : "&"
 		},
 		restrict: "E",
-		template: "<p>Circketer : {{name}}</p>"
+		templateUrl: "../template/cricketer.html"
 	};
 });
 
