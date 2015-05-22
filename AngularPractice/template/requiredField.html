@@ -1,0 +1,6 @@
+
+<div class="form-group" ng-class="{'has-error':form.email.$invalid}">
+	<label for="{{name}}"  class="sr-only">{{description}}</label>
+	<input type="{{type}}" name="{{name}}" ng-model="model" ng-model-options="{updateOn: 'blur'}" 
+	   class="form-control" description="{{description}}" required autofocus>
+</div>
