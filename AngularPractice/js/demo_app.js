@@ -1,5 +1,16 @@
 var app = angular.module('demoApp', []);
 
+// app.config(function($routeProvider){
+// 	console.log('Inside Config!!!');
+// 	$routeProvider
+// 		.when("/", {
+// 			template : "template/main_page.html"
+// 		})
+// 		.when("/hello", {
+// 			template : "Hello!!!"
+// 		});
+// });
+
 
 app.controller("LoginController", function($scope){
 	var user = {};
@@ -70,7 +81,7 @@ app.controller("CricketController", function($scope) {
 	};
 });
 
-//Attribute binding - @
+//Attribute bindings - @,==,&
 app.directive("cricketer", function() {
 	return {
 		scope :{
@@ -80,6 +91,25 @@ app.directive("cricketer", function() {
 		},
 		restrict: "E",
 		templateUrl: "../template/cricketer.html"
+	};
+});
+
+//Zippy
+app.directive('zippy', function() {
+	return {
+		restrict: "E",
+		transclude: true,
+		scope: {
+			title: "@"
+		},
+		templateUrl: "../template/zippy.html",
+		link: function(scope) {
+			scope.showContent = false;
+			scope.toggleShowContent = function() {
+				scope.showContent = !scope.showContent;
+				console.log('showContent:', scope.showContent);
+			};
+		}
 	};
 });
 
