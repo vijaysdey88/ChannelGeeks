@@ -1,15 +1,15 @@
-var app = angular.module('demoApp', []);
+var app = angular.module('demoApp', ['ngRoute']);
 
-// app.config(function($routeProvider){
-// 	console.log('Inside Config!!!');
-// 	$routeProvider
-// 		.when("/", {
-// 			template : "template/main_page.html"
-// 		})
-// 		.when("/hello", {
-// 			template : "Hello!!!"
-// 		});
-// });
+app.config(function($routeProvider){
+	console.log('Inside Config!!!');
+	$routeProvider
+		.when("/", {
+			templateUrl : "template/main_page.html"
+		})
+		.when("/hello", {
+			template : "Hello!!!"
+		});
+});
 
 
 app.controller("LoginController", function($scope){

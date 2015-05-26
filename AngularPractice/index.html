@@ -5,41 +5,14 @@
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
 
-	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>	
+	<!--Third party scripts-->
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>	
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>	
+	
+	<!--User scripts-->
 	<script type="text/javascript" src="js/demo_app.js"></script>
 </head>
 <body ng-app="demoApp">
-	<!-- <ng-view></ng-view> -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 jumbotron">
-					<login></login>		
-			</div>
-			<div class="col-md-6 jumbotron">
-				<input type="text" ng-model="zippy.title" placeholder="Enter zippy title">
-				<input type="text" ng-model="zippy.content" placeholder="Enter zippy content">
-				
-				<zippy title="{{zippy.title}}">Content : {{zippy.content}}</zippy>
-				<zippy title="{{zippy.title}}">Content : {{zippy.content}}</zippy>
-			</div>
-		</div>
-		
-		<div class="row">	
-			<div class="col-md-6 jumbotron"><h4>Basics of directives 1....</h4>
-				<div ng-controller="HelloController" class="col-md-6">
-					<label for="message">Message : </label> <input type="text" id="message" ng-model="message">
-					<span message-preview="red"></span>	
-				
-					<p enter="logHello()" style="background-color:#00CED1;width:300px">View the console...</p>		
-				</div>			
-			</div>
-			<div class="col-md-6 jumbotron" ng-controller="CricketController">
-					<h4>Basics of directives 2 - Cricket</h4>
-					<label for="team">Controller Team</label><input type="text" id="team" ng-model="team">
-					<cricketer name="vijay" team="team" register="sayHello(cricketerName)"></cricketer>
-					<cricketer name="prasad"></cricketer>
-			</div>
-		</div>
-	</div>
+	<ng-view></ng-view>	
 </body>
 </html>
