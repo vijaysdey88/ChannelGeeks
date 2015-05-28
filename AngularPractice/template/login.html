@@ -9,7 +9,7 @@
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" ng-model="user.password" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="Password" required>
    </div>
-   <div class="alert alert-danger" ng-show="user.notAuthorized">    
+   <div class="alert alert-danger" ng-show="user.notAuthenticated">    
       <strong>Incorrect Email Id and Password</strong>  
   </div>  
 
