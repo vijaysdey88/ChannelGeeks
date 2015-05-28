@@ -5,14 +5,27 @@ app.controller("LoginController", function($scope, $location, LoginService){
 
 	$scope.login = function() {
 		console.log('Login user : ' + user.email + "/" + user.password);
-		if(LoginService.authenticate(user)) {
-			user.notAuthorized = false;
-			console.log("Login success :) ");
-			$location.path("/hello/" + user.email);
-		} else {
-			user.notAuthorized = true;
-			console.log("Login failure :( ");
-		}
+
+		LoginService.authenticate(user)
+					.then(function(response){
+							var isAuthenticated = response.data;
+							console.log('Result of authentication - ' + isAuthenticated);
+							if(isAuthenticated) {
+								user.notAuthorized = false;								
+								$location.path("/hello/" + user.email);
+							} else {
+								user.notAuthorized = true;
+							}
+					});
+
+		// if(LoginService.authenticate(user)) {
+		// 	user.notAuthorized = false;
+		// 	console.log("Login success :) ");
+		// 	$location.path("/hello/" + user.email);
+		// } else {
+		// 	user.notAuthorized = true;
+		// 	console.log("Login failure :( ");
+		// }
 	};
 });
 
@@ -50,13 +63,13 @@ app.service('LoginService', function($http) {
 		};
 
 		//$http.post("http://localhost:8080/SpringMVC/rest/user/isvalid", authRequest).
-		$http(authRequest).
-		success(function(data, status, headers, config) {
-		    console.log('User authentication result - ' + data);
-		}).
-		error(function(data, status, headers, config) {
-		   	console.log('Failure while authenticating user - ' + data);
-		});
+		return $http(authRequest).
+					success(function(data, status, headers, config) {
+					    console.log('User authentication result - ' + data);
+					}).
+					error(function(data, status, headers, config) {
+					   	console.log('Failure while authenticating user - ' + data);
+					});
 	}
 });
 
