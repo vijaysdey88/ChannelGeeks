@@ -10,7 +10,7 @@
 	<properties>
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<jackson.version>1.9.10</jackson.version>
-		<jdk.version>1.8</jdk.version>
+		<jdk.version>1.6</jdk.version>
 	</properties>
 
 	<dependencies>
@@ -44,7 +44,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>restwebservice</finalName>
+		<finalName>SpringMVC</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
