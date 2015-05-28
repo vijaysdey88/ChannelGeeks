@@ -9,6 +9,9 @@
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" ng-model="user.password" ng-model-options="{updateOn: 'blur'}" class="form-control" placeholder="Password" required>
    </div>
+   <div class="alert alert-danger" ng-show="user.notAuthorized">    
+      <strong>Incorrect Email Id and Password</strong>  
+  </div>  
 
  <!-- <div class="form-group" ng-class="{'has-error':form.age.$dirty && form.age.$invalid, 'has-success':form.age.$dirty && form.age.$valid}" >
         <label for="age" class="sr-only">age</label>
