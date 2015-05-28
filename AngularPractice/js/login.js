@@ -5,7 +5,7 @@ app.controller("LoginController", function($scope, $location, LoginService){
 
 	$scope.login = function() {
 		console.log('Login user : ' + user.email + "/" + user.password);
-		if(LoginService.isAuthorized(user)) {
+		if(LoginService.authenticate(user)) {
 			user.notAuthorized = false;
 			console.log("Login success :) ");
 			$location.path("/hello/" + user.email);
@@ -16,7 +16,16 @@ app.controller("LoginController", function($scope, $location, LoginService){
 	};
 });
 
-app.service('LoginService', function() {
+app.service('LoginService', function($http) {
+
+	// $http.defaults.headers.put = {
+ 	//        'Access-Control-Allow-Origin': '*',
+ 	//        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+ 	//        'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
+ 	//        };
+	// delete $http.defaults.headers.common['X-Requested-With'];
+	// $http.defaults.useXDomain = true;
+
 	this.isAuthorized = function(user) {
 		if("vd@c" === user.email && "vd" === user.password) {
 			return true;
@@ -24,6 +33,31 @@ app.service('LoginService', function() {
 			return false;
 		}
 	};
+
+	this.authenticate = function(user) {
+		var authRequest = {
+			method: "POST",
+			url: "http://localhost:8080/SpringMVC/rest/user/isvalid",
+			headers: {
+   				"Content-Type": "application/json",
+   				"Access-Control-Allow-Origin": "*"
+
+ 			},
+ 			data: {
+ 				email: user.email,
+				password: user.password 
+ 			}
+		};
+
+		//$http.post("http://localhost:8080/SpringMVC/rest/user/isvalid", authRequest).
+		$http(authRequest).
+		success(function(data, status, headers, config) {
+		    console.log('User authentication result - ' + data);
+		}).
+		error(function(data, status, headers, config) {
+		   	console.log('Failure while authenticating user - ' + data);
+		});
+	}
 });
 
 app.directive("login", function(){
