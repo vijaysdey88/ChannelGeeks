@@ -6,8 +6,8 @@ app.config(function($routeProvider){
 		.when("/", {
 			templateUrl : "template/main_page.html"
 		})
-		.when("/hello:email", {
-			template : "Hello {{email}}!!!"
+		.when("/welcome", {
+			template : "Login Successful !!!"
 		});
 });
 
