@@ -6,8 +6,9 @@ app.config(function($routeProvider){
 		.when("/", {
 			templateUrl : "template/main_page.html"
 		})
-		.when("/welcome", {
-			template : "Login Successful !!!"
+		.when("/welcome/:userEmailId", {
+			controller: "WelcomeController",
+			template : "Message : {{message}}"
 		});
 });
 
@@ -25,7 +26,8 @@ app.directive("requiredField", function(){
 });
 
 //Practice Directives
-app.controller("HelloController", function($scope){
+app.controller("WelcomeController", function($scope, $routeParams){
+	$scope.message = "Welcome " + $routeParams.userEmailId + " !!!";
 	$scope.logHello = function() {
 		console.log("Controller says Hello!!")
 	};

@@ -10,7 +10,7 @@ app.controller("LoginController", function($scope, $location, LoginService){
 			console.log('Result of authentication - ' + isAuthenticated);
 			if(isAuthenticated) {
 				user.notAuthenticated = false;								
-				$location.path("/welcome");
+				$location.path("/welcome/" + user.email);
 			} else {
 				user.notAuthenticated = true;
 			}
