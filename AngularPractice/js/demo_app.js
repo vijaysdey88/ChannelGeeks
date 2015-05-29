@@ -8,8 +8,24 @@ app.config(function($routeProvider){
 		})
 		.when("/welcome/:userEmailId", {
 			controller: "WelcomeController",
-			template : "Message : {{message}}"
+			template : "{{message}}",
+			resolve: {
+					message : function($route, WelcomeService) {
+						return WelcomeService.getWelcomeMessage($route.current.params.userEmailId);
+					}
+			}
 		});
+});
+
+app.factory("WelcomeService", function($http){
+	return {
+			getWelcomeMessage : function(userEmailId) {
+				return $http.get("http://localhost:8080/SpringMVC/rest/user/sayhello/" + userEmailId)
+                			.then(function(response){
+                				return response.data.message;
+                			})
+			}
+	};
 });
 
 app.directive("requiredField", function(){
@@ -26,8 +42,8 @@ app.directive("requiredField", function(){
 });
 
 //Practice Directives
-app.controller("WelcomeController", function($scope, $routeParams){
-	$scope.message = "Welcome " + $routeParams.userEmailId + " !!!";
+app.controller("WelcomeController", function($scope, message){
+	$scope.message = "Welcome Message" + message + " !!!";
 	$scope.logHello = function() {
 		console.log("Controller says Hello!!")
 	};
