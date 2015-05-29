@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.model.Authenticate;
+import com.study.model.WelcomeMessage;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-	@RequestMapping(value = "sayhello/{userEmail}", method=RequestMethod.GET)
-	public @ResponseBody String sayHello(@PathVariable String userEmail) {
-		return "Hello " + userEmail + " !!!";
+	@RequestMapping(value = "sayhello/{userEmail}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody WelcomeMessage sayHello(@PathVariable String userEmail) {
+		return new WelcomeMessage("Welcome user " + userEmail + " to demo angular application...");
 	}
 	
 	@RequestMapping(value = "/isvalid", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
