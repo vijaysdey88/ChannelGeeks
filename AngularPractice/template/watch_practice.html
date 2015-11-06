@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>$watch $apply $digest practice</title>
+</head>
+<body>
+<div class="container">
+	<div class="col-md-12 jumbotron">
+		<p>Manually update time  : {{model.manualUpdateTime}}</p>
+		<button id="ngUpdateTimeButton" ng-click="updateTime()">Angular Update Time</button>
+		<button id="simpleUpdateTimeButton">Simple Update Time</button>
+	</div>
+
+	<div class="col-md-12 jumbotron">
+		<p>Counter : {{model.counter}}</p>
+		<span>{{model.milestoneMessage}}</span>
+	</div>
+</div>
+
+</body>
+</html>

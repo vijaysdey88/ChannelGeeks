@@ -1,0 +1,37 @@
+* {
+    outline: 1px solid red !important;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.title {
+    background-color: #33BEBE;
+    padding: 30px 5px 5px 25px;
+    margin-bottom: 50px;
+    color: white;
+    text-align: left;
+    font-size: 50px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+.app {
+    display: flex;
+}
+
+.screenshot {
+    width: 50%;
+    max-width: 460px;
+    margin: 0px 35px 0px 0px;
+}
+
+.description {
+   
+}

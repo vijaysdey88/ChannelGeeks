@@ -1,6 +1,6 @@
-var app = angular.module('demoApp', ['ngRoute']);
+var demoApp = angular.module('demoApp', ['ngRoute', 'countryApp']);
 
-app.config(function($routeProvider) {
+demoApp.config(function($routeProvider) {
 	console.log('Inside Config!!!');
 	$routeProvider
 		.when("/", {
@@ -14,21 +14,30 @@ app.config(function($routeProvider) {
 					return WelcomeService.getWelcomeMessage();
 				}
 			}
-		});
+		})
+		.when("/watchpractice", {
+			controller: "WatchPracticeController",
+			templateUrl: "template/watch_practice.html"
+		})
+        .when("/countries", {
+            controller: "CountryController",
+			templateUrl: "template/country_home.html"
+		})
+    ;
 });
 
-app.controller("WelcomeController", function($scope) {
+demoApp.controller("WelcomeController", function($scope) {
 	$scope.message = "Type in any message...";
 	$scope.logHello = function() {
-		console.log("Controller says Hello!!")
+		console.log("Controller says Hello!!");
 	};
-});
+}); 
 
-app.controller("UserWelcomeController", function($scope, message) {
+demoApp.controller("UserWelcomeController", function($scope, message) {
 	$scope.userWelcomeMessage = "Message" + message + " !!!";
 });
 
-app.factory("WelcomeService", function($http, $route, $q) {
+demoApp.factory("WelcomeService", function($http, $route, $q) {
 	return {
 		getWelcomeMessage: function() {
 			var promise = $http.get("http://localhost:8080/SpringMVC/rest/user/sayhello/" + $route.current.params.userEmailId)
@@ -41,7 +50,7 @@ app.factory("WelcomeService", function($http, $route, $q) {
 	};
 });
 
-app.directive("requiredField", function() {
+demoApp.directive("requiredField", function() {
 	return {
 		restrict: "E",
 		scope: {
@@ -56,7 +65,7 @@ app.directive("requiredField", function() {
 
 
 // Basic Behavious
-app.directive('messagePreview', function() {
+demoApp.directive('messagePreview', function() {
 	return {
 		restrict: "A",
 		template: "<p>Preview {{message}}</p>",
@@ -67,20 +76,20 @@ app.directive('messagePreview', function() {
 	};
 });
 
-app.directive('enter', function() {
+demoApp.directive('enter', function() {
 	return {
 		restrict: "A",
 		link: function(scope, element, attributes) {
 			element.bind("mouseenter", function() {
 				console.log("Content - " + element.text());
-				scope.$apply(attributes.enter);
+				scope.$demoApply(attributes.enter);
 			});
 		}
 	};
 });
 
 // Isolated Scope types
-app.controller("CricketController", function($scope) {
+demoApp.controller("CricketController", function($scope) {
 	$scope.team = "";
 	$scope.sayHello = function(cricketerName) {
 		alert("Hello!!! - " + cricketerName);
@@ -88,7 +97,7 @@ app.controller("CricketController", function($scope) {
 });
 
 //Attribute bindings - @,==,&
-app.directive("cricketer", function() {
+demoApp.directive("cricketer", function() {
 	return {
 		scope: {
 			name: "@",
@@ -101,7 +110,7 @@ app.directive("cricketer", function() {
 });
 
 //Zippy
-app.directive('zippy', function() {
+demoApp.directive('zippy', function() {
 	return {
 		restrict: "E",
 		transclude: true,

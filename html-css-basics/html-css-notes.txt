@@ -1,0 +1,13 @@
+CSS reference
+1. selectors - https://css-tricks.com/how-css-selectors-work/
+2. http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css
+3. http://necolas.github.io/normalize.css/
+4. content sectioning - https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning
+5. Sections and Outlines of an HTML5 Document - The HTML5 Outline Algorithm - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Sections_and_Outlines_of_an_HTML5_document#The_HTML5_Outline_Algorithm
+6. Flex box - https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+              https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+              https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap
+              \
+7. Media Query
+8. normalize.css for cross browser compatability
+9. https://www.google.com/fonts

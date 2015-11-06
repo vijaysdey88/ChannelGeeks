@@ -1,4 +1,4 @@
-app.controller("LoginController", function($scope, $location, LoginService){
+demoApp.controller("LoginController", function($scope, $location, LoginService){
 	var user = {};
 	$scope.user = user;
 	user.notAuthenticated = false;
@@ -19,7 +19,7 @@ app.controller("LoginController", function($scope, $location, LoginService){
 	};
 });
 
-app.service('LoginService', function($http) {
+demoApp.service('LoginService', function($http) {
 	
 	this.authenticate = function(user, onAuthSuccess) {
 		var authRequest = {
@@ -46,7 +46,7 @@ app.service('LoginService', function($http) {
 	}
 });
 
-app.directive("login", function(){
+demoApp.directive("login", function(){
 	return {
 		restrict : "E",
 		templateUrl : "../template/login.html"
